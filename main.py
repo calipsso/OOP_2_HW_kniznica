@@ -23,8 +23,8 @@ class Kniznica:
         for kniha in self.zoznam_knih:
             if kniha.ISBN == ISBN_kniha:
                 kniha.stav_dostupnost()
-                print(
-                    f"vypozical si knihu {kniha.nazov} od {kniha.autor}, ISBN: {kniha.ISBN}, ROK: {kniha.rok_vydania}, Status: Vypozicana")
+                print(f"vypozical si knihu {kniha.nazov} od {kniha.autor}, ISBN: {kniha.ISBN}, ROK: {kniha.rok_vydania}, Status: Vypozicana")
+                #dopln sem podmienku na vymazanie knihy zo zoznamu
 
     def vyhladanie_knihy(self, nazov_kniha):
         for kniha in self.zoznam_knih:
@@ -33,7 +33,7 @@ class Kniznica:
 
     def vypis(self):
         for kniha in self.zoznam_knih:
-            print("kniha")
+            print(f" {kniha.nazov} od {kniha.autor}, ISBN: {kniha.ISBN}, ROK: {kniha.rok_vydania}, Status: Dostupna")
 
 
 kniha_1 = Kniha("Godfather", "Mario Puzo", 325, 1999)
