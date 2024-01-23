@@ -3,12 +3,16 @@ class Kniha:
         self.nazov = nazov
         self.autor = autor
         self.ISBN = ISBN
-        self.dostupnost = True
+        self._dostupnost = True
         self.rok_vydania = rok
 
-    def stav_dostupnost(self):
-        self.dostupnost = False
 
+    def stav_dostupnost(self):
+        self._dostupnost = False
+
+    @property
+    def dostupnost(self):
+        return "Dostupna" if self._dostupnost else "Nedostupna"
 
 
     def __str__(self):
@@ -16,7 +20,7 @@ class Kniha:
 
 class Kniznica:
     def __init__(self):
-        self.zoznam_knih = [kniha_1, kniha_2, kniha_3]
+        self.zoznam_knih = []
 
 
     def pridaj_knihu(self, kniha):
@@ -37,8 +41,8 @@ class Kniznica:
 
     def vypis(self):
         for kniha in self.zoznam_knih:
-            if kniha.dostupnost:
-                print(f"Dostupne knihy su: {kniha.nazov} od {kniha.autor}, ISBN: {kniha.ISBN}, ROK: {kniha.rok_vydania}, Status: {kniha.dostupnost}, ")
+            if kniha._dostupnost:
+                print(f"Dostupne knihy su: {kniha.nazov} od {kniha.autor}, ISBN: {kniha.ISBN}, ROK: {kniha.rok_vydania}, Status: {kniha.dostupnost} ")
 
 
 
@@ -50,13 +54,13 @@ kniha_2 = Kniha("Faust", "J.H.Goethe", 485, 1832)
 kniha_3 = Kniha("LoTR", "J.R.Tolkien", 111, 1935)
 
 kniznica = Kniznica()
-#kniznica.pridaj_knihu(kniha_1)
-#kniznica.pridaj_knihu(kniha_2)
-#kniznica.pridaj_knihu(kniha_3)
+kniznica.pridaj_knihu(kniha_1)
+kniznica.pridaj_knihu(kniha_2)
+kniznica.pridaj_knihu(kniha_3)
 kniznica.vypozicaj_knihu(325)
-#kniznica.vyhladanie_knihy("LoTR")
+kniznica.vyhladanie_knihy("LoTR")
 kniznica.vypis()
 print("---------")
-#print(kniha_1)
-#print(kniha_2)
+print(kniha_1)
+print(kniha_2)
 
