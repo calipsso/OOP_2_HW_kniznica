@@ -10,7 +10,7 @@ class Kniha:
     def stav_dostupnost(self):
         self._dostupnost = False
 
-    @property
+    @property #vstavany dekorator https://docs.python.org/3.12/library/functions.html#property
     def dostupnost(self):
         return "Dostupna" if self._dostupnost else "Nedostupna"
 
